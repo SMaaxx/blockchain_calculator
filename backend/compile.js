@@ -26,6 +26,9 @@ const input = {
 
 const compiledCode = JSON.parse(solc.compile(JSON.stringify(input)));
 const bytecode = compiledCode.contracts[fileName][contractName].evm.bytecode.object;
+fs.mkdir('artifacts', (err) => {
+  if (err) throw err;
+});
 const bytecodePath = path.join(__dirname, "./artifacts/mathOperationsBytecode.bin");
 const abi = compiledCode.contracts[fileName][contractName].abi;
 const abiPath = path.join(__dirname, "./artifacts/mathOperationsAbi.json");
