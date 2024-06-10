@@ -15,16 +15,12 @@ const useContractMethod = async (action) => {
   try {
     switch (action.type) {
       case "add":
-        console.log(action);
         return await myContract.methods.add(action.payload.firstArg, action.payload.secondArg).call();
       case "subtract":
-        console.log(action);
         return await myContract.methods.subtract(action.payload.firstArg, action.payload.secondArg).call();
       case "multiply":
-        console.log(action);
         return await myContract.methods.multiply(action.payload.firstArg, action.payload.secondArg).call();
       case "divide":
-        console.log(action);
         return await myContract.methods.divide(action.payload.firstArg, action.payload.secondArg).call();
     }
   } catch (error) {
