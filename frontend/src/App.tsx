@@ -20,7 +20,12 @@ const App: React.FC  = () => {
             value={expression}
             onChange={(event) => onChange(event.target.value)}
           />
-          <ButtonsBlock expression={expression} changeExpression={setExpression} changeHistory={setHistory} history={history}/>
+          <ButtonsBlock
+            expression={expression}
+            changeExpression={setExpression}
+            changeHistory={setHistory}
+            history={history}
+          />
         </div>
         <div className={styles.history}>
           {history.map((operation) =>

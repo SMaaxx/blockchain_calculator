@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const corsOptions = {
-  origin: 'http://localhost:3000'
+  origin: process.env.FRONTEND_URL
 };
 
 app.use(cors(corsOptions));
@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 require('./routes/routes')(app);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.BACKEND_PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);

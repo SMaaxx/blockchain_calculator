@@ -2,7 +2,7 @@ const { Web3 } = require("hardhat");
 const path = require("path");
 const fs = require("fs");
 
-const web3 = new Web3("http://127.0.0.1:8545/");
+const web3 = new Web3(process.env.HARDHAT_URL);
 const bytecodePath = path.join(__dirname, "./artifacts/mathOperationsBytecode.bin");
 const bytecode = fs.readFileSync(bytecodePath, "utf8");
 

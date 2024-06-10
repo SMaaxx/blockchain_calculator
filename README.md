@@ -9,11 +9,11 @@
 
 ### Стек
 * Frontend: ReactJS, Axios
-* Backend: ExpressJS, Web3.jS
+* Backend: ExpressJS, Web3.JS
 * Тестовая eth сеть: HardHat
 
 ### Для запуска проекта:
-* Установите зависимости: `npm install`
-* Для запуска используйте команду: `npm start`
+* Установите зависимости: `npm run install`
+* Запустите приложение с помощью: `npm start`
 
 Приложение будет доступно по адресу http://localhost:3000

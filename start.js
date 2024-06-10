@@ -7,7 +7,7 @@ concurrently(
   ],
 );
 
-const connect = setInterval(() => checkSiteAvailability("http://127.0.0.1:8545/").then(isAvailable => {
+const connect = setInterval(() => checkSiteAvailability(process.env.HARDHAT_URL).then(isAvailable => {
   const deploy = () => {
     concurrently(
       [
