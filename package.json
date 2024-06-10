@@ -4,7 +4,8 @@
   "description": "",
   "main": "start.js",
   "scripts": {
-    "start": "node start.js"
+    "start": "node start.js",
+    "install": "npm install && npm --prefix=backend install && npm --prefix=frontend install"
   },
   "author": "",
   "license": "ISC",
