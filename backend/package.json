@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start:server": "node compile.js && node deploy.js && env-cmd -f .env node server.js",
+    "start:hardhat": "npx hardhat node"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nomicfoundation/hardhat-web3-v4": "^1.0.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
+    "express": "^4.19.2",
+    "hardhat": "^2.22.5",
+    "solc": "^0.8.26",
+    "web3": "^4.9.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}

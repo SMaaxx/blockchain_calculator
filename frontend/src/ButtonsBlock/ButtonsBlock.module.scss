@@ -1,0 +1,44 @@
+.container {
+  :first-child {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  :last-child {
+    grid-template-columns: 2fr 2fr;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.button {
+  padding: 20px 40px;
+  margin: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  color: #C7C6C9;
+}
+
+.functional {
+  background-color: #323232;
+  &:hover {
+    background-color: #3B3B3B;
+  }
+}
+
+.result {
+  background-color: #76B9ED;
+  &:hover {
+    background-color: #6CA8D8;
+  }
+}
+
+
+.number {
+  background-color: #3B3B3B;
+  &:hover {
+    background-color: #323232;
+  }
+}
