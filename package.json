@@ -4,14 +4,13 @@
   "description": "",
   "main": "start.js",
   "scripts": {
-    "start": "env-cmd -f .env node start.js",
-    "install": "npm install && npm --prefix=backend install && npm --prefix=frontend install"
+    "start": "env-cmd -f .env node start.js"
   },
   "author": "",
   "license": "ISC",
   "workspaces": [
-    "frontend/*",
-    "backend/*"
+    "frontend",
+    "backend"
   ],
   "lint": "eslint .",
   "lint:fix": "eslint --fix",
