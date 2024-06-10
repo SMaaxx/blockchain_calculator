@@ -24,6 +24,10 @@ type Row = {
 const ButtonsBlock: React.FC<Props> = ({ changeExpression, expression, changeHistory, history }) => {
 
   const removeItem = () => {
+    if(expression === 'Ошибка') {
+      changeExpression('');
+      return
+    }
     if (expression.charAt(expression.length - 2) === ' ') {
       changeExpression(expression.slice(0, -2));
     } else {
@@ -32,6 +36,10 @@ const ButtonsBlock: React.FC<Props> = ({ changeExpression, expression, changeHis
   }
 
   const addSymbol = (symbol: string) => {
+    if(expression === 'Ошибка') {
+     changeExpression(symbol);
+     return
+    }
     if (/[+\-*/]$/.test(expression) || /[+\-*/]/.test(symbol)) {
       changeExpression(expression + ' ' + symbol)
     } else {
