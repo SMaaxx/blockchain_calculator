@@ -16,6 +16,11 @@ type Button = {
   onClick: () => void
 }
 
+type Row = {
+  rowId: number,
+  buttons: Button[]
+}
+
 const ButtonsBlock: React.FC<Props> = ({ changeExpression, expression, changeHistory, history }) => {
 
   const removeItem = () => {
@@ -41,116 +46,142 @@ const ButtonsBlock: React.FC<Props> = ({ changeExpression, expression, changeHis
     })
   }
 
-  const rows: Button[][]  = [
-    [
-      {
-      value: 'AC',
-      type: 'functional',
-      onClick: () => changeExpression(''),
-      },
-      {
-        value: 'C',
-        type: 'functional',
-        onClick: removeItem,
-      },
-      {
-        value: '*',
-        type: 'functional',
-        onClick: () => addSymbol('*'),
-      }
-    ],
-    [
-      {
-        value: '7',
-        type: 'number',
-        onClick: () => addSymbol('7'),
-      },
-      {
-        value: '8',
-        type: 'number',
-        onClick: () => addSymbol('8'),
-      },
-      {
-        value: '9',
-        type: 'number',
-        onClick: () => addSymbol('9'),
+  const rows: Row[]  = [
+    {
+      rowId: 1,
+      buttons: [
+        {
+          value: 'AC',
+          type: 'functional',
+          onClick: () => changeExpression(''),
+        },
+        {
+          value: 'C',
+          type
+            :
+            'functional',
+          onClick
+            :
+          removeItem,
+        }
+        ,
+        {
+          value: '*',
+          type
+            :
+            'functional',
+          onClick
+            :
+            () => addSymbol('*'),
+        }
+      ]
+    },
 
-      },
-      {
-        value: '/',
-        type: 'functional',
-        onClick: () => addSymbol('/'),
-      }
-    ],
-    [
-      {
-        value: '4',
-        type: 'number',
-        onClick: () => addSymbol('4'),
-      },
-      {
-        value: '5',
-        type: 'number',
-        onClick: () => addSymbol('5'),
+    {
+      rowId: 2,
+      buttons: [
+        {
+          value: '7',
+          type: 'number',
+          onClick: () => addSymbol('7'),
+        },
+        {
+          value: '8',
+          type: 'number',
+          onClick: () => addSymbol('8'),
+        },
+        {
+          value: '9',
+          type: 'number',
+          onClick: () => addSymbol('9'),
 
-      },
-      {
-        value: '6',
-        type: 'number',
-        onClick: () => addSymbol('6'),
+        },
+        {
+          value: '/',
+          type: 'functional',
+          onClick: () => addSymbol('/'),
+        }
+      ],
+    },
+    {
+      rowId: 3,
+      buttons: [
+        {
+          value: '4',
+          type: 'number',
+          onClick: () => addSymbol('4'),
+        },
+        {
+          value: '5',
+          type: 'number',
+          onClick: () => addSymbol('5'),
 
-      },
-      {
-        value: '+',
-        type: 'functional',
-        onClick: () => addSymbol('+'),
-      }
-    ],
-    [
-      {
-        value: '1',
-        type: 'number',
-        onClick: () => addSymbol('1'),
+        },
+        {
+          value: '6',
+          type: 'number',
+          onClick: () => addSymbol('6'),
 
-      },
-      {
-        value: '2',
-        type: 'number',
-        onClick: () => addSymbol('2'),
+        },
+        {
+          value: '+',
+          type: 'functional',
+          onClick: () => addSymbol('+'),
+        }
+      ]
+    },
 
-      },
-      {
-        value: '3',
-        type: 'number',
-        onClick: () => addSymbol('3'),
-      },
-      {
-        value: '-',
-        type: 'functional',
-        onClick: () => addSymbol('-'),
-      }
-    ],
-    [
-      {
-        value: '0',
-        type: 'number',
-        onClick: () => addSymbol('0'),
-      },
-      {
-        value: '=',
-        type: 'result',
-        onClick: async ()  => await getResult(),
-      },
-    ]
+    {
+      rowId: 3,
+      buttons: [
+        {
+          value: '1',
+          type: 'number',
+          onClick: () => addSymbol('1'),
+
+        },
+        {
+          value: '2',
+          type: 'number',
+          onClick: () => addSymbol('2'),
+
+        },
+        {
+          value: '3',
+          type: 'number',
+          onClick: () => addSymbol('3'),
+        },
+        {
+          value: '-',
+          type: 'functional',
+          onClick: () => addSymbol('-'),
+        }
+      ]
+    },
+    {
+      rowId: 4,
+      buttons: [
+        {
+          value: '0',
+          type: 'number',
+          onClick: () => addSymbol('0'),
+        },
+        {
+          value: '=',
+          type: 'result',
+          onClick: async () => await getResult(),
+        },
+      ]
+    }
   ]
 
 
   return (
     <div className={styles.container}>
-      {rows.map((row: Button[]) => {
+      {rows.map((row: Row) => {
         return(
-          <div className={styles.row}>
-            {row.map((button) => {
+          <div className={styles.row} key={row.rowId}>
+            {row.buttons.map((button: Button) => {
               return(
                 <div
                   className={`${styles.button} ${styles[button.type]}`}
