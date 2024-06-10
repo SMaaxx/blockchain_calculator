@@ -17,3 +17,5 @@
 * Запустите приложение с помощью: `npm start`
 
 Приложение будет доступно по адресу http://localhost:3000
+
+Смарт-контракт находится в `backend/contracts/mathOperations.sol`
