@@ -27,7 +27,7 @@ const input = {
 const compiledCode = JSON.parse(solc.compile(JSON.stringify(input)));
 const bytecode = compiledCode.contracts[fileName][contractName].evm.bytecode.object;
 
-fs.stat('./artifacts', (err, stats) => {
+fs.stat('./artifacts', (err) => {
   if (err) {
     if (err.code === 'ENOENT') {
       fs.mkdir('artifacts', (err) => {
